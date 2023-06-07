@@ -11,7 +11,7 @@ const useInstructor = () => {
     enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure.get(`/isInstructor/${user.email}`);
-      return res.data.admin;
+      return res.data.instructor;
     },
   });
   return [isInstructor, isInstructorLoading];
