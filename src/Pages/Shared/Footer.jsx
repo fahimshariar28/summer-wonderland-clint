@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "/logo.png";
 const Footer = () => {
   return (
@@ -10,10 +11,18 @@ const Footer = () => {
       </div>
       <div>
         <span className="footer-title">Links</span>
-        <a className="link link-hover">Home</a>
-        <a className="link link-hover">Classes</a>
-        <a className="link link-hover">Instructors</a>
-        <a className="link link-hover">Dashboard</a>
+        <Link to="/" className="link link-hover">
+          Home
+        </Link>
+        <Link to="/classes" className="link link-hover">
+          Classes
+        </Link>
+        <Link to="/instructors" className="link link-hover">
+          Instructors
+        </Link>
+        <Link to="/dashboard/home" className="link link-hover">
+          Dashboard
+        </Link>
       </div>
       <div>
         <span className="footer-title">Legal</span>
