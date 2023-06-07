@@ -26,6 +26,7 @@ const Instructors = () => {
             <div className="card-body">
               <h2 className="card-title">{item.name}</h2>
               <p>Email: {item.email}</p>
+              <p>Students: {item.students}</p>
             </div>
           </div>
         ))}
