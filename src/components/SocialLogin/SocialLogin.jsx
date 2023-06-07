@@ -15,7 +15,21 @@ const SocialLogin = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        const savedUser = {
+          name: user.displayName,
+          email: user.email,
+          image: user.photoURL,
+          role: "student",
+        };
+        fetch("http://localhost:5000/adduser", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(savedUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
         Swal.fire({
           icon: "success",
           title: "Login Success",

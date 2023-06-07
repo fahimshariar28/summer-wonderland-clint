@@ -45,7 +45,7 @@ const Register = () => {
                   confirmButtonText: "Ok",
                 }).then((result) => {
                   if (result.isConfirmed) {
-                    navigate("/login");
+                    navigate("/");
                   }
                 });
               });
