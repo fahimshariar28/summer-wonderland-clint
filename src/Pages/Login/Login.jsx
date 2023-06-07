@@ -3,6 +3,8 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { loginUser } = useAuth();
@@ -10,6 +12,12 @@ const Login = () => {
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const {
     register,
@@ -65,12 +73,24 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input
-                  {...register("password", { required: true })}
-                  type="password"
-                  placeholder="********"
-                  className="input input-bordered"
-                />
+                <div className="flex items-center">
+                  <input
+                    {...register("password", { required: true })}
+                    type={showPassword ? "text" : "password"}
+                    placeholder="********"
+                    className="input input-bordered"
+                  />
+                  <button
+                    className="ms-2 text-2xl text-primary"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {!showPassword ? (
+                      <FaEye></FaEye>
+                    ) : (
+                      <FaEyeSlash></FaEyeSlash>
+                    )}
+                  </button>
+                </div>
                 <label className="label">
                   {errors.exampleRequired && (
                     <span>This field is required</span>
