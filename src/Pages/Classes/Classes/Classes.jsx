@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import useStudent from "../../../hooks/useStudent";
 
 const Classes = () => {
   const { data, isLoading } = useQuery({
@@ -8,6 +9,7 @@ const Classes = () => {
       return res.json();
     },
   });
+  const [isStudent] = useStudent();
   console.log(data);
   if (isLoading) {
     return (
@@ -35,7 +37,9 @@ const Classes = () => {
                 <p>Price: {item.price}</p>
               </div>
               <div className="card-actions justify-center">
-                <button className="btn btn-primary">Select Class</button>
+                <button className="btn btn-primary" disabled={!isStudent}>
+                  Select Class
+                </button>
               </div>
             </div>
           </div>
