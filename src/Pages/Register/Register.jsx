@@ -3,6 +3,7 @@ import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useAuth();
@@ -23,13 +24,32 @@ const Register = () => {
     const photoUrl = data.photoUrl;
     const password = data.password;
     const confirmPassword = data.confirmPassword;
-    console.log(name, email, photoUrl, password, confirmPassword);
     if (password === confirmPassword) {
       createUser(email, password)
         .then((result) => {
           console.log(result);
-          updateUserProfile(name, photoUrl);
-          navigate("/");
+          updateUserProfile(name, photoUrl).then(() => {
+            const savedUser = { name, email, image: photoUrl, role: "student" };
+            fetch("http://localhost:5000/adduser", {
+              method: "POST",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify(savedUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                Swal.fire({
+                  icon: "success",
+                  title: "Registration Successful",
+                  text: "Please Login",
+                  confirmButtonText: "Ok",
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    navigate("/login");
+                  }
+                });
+              });
+          });
         })
         .catch((error) => {
           console.log(error.message);
