@@ -1,7 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import useStudent from "../../../hooks/useStudent";
+import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Classes = () => {
+  const { user } = useAuth();
   const { data, isLoading } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
@@ -9,6 +12,39 @@ const Classes = () => {
       return res.json();
     },
   });
+
+  const handleAddToDb = async (item) => {
+    if (user && user.email) {
+      const selectedClass = {
+        classId: item._id,
+        className: item.name,
+        classPrice: item.price,
+        instructor: item.instructor,
+        name: user.name,
+        email: user.email,
+      };
+      fetch("http://localhost:5000/selectClass", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(selectedClass),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Class Has been added",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    }
+  };
+
   const [isStudent] = useStudent();
   console.log(data);
   if (isLoading) {
@@ -44,6 +80,9 @@ const Classes = () => {
               </div>
               <div className="card-actions justify-center">
                 <button
+                  onClick={() => {
+                    handleAddToDb(item);
+                  }}
                   className="btn btn-primary"
                   disabled={item.available_seats === 0 || !isStudent}
                 >
