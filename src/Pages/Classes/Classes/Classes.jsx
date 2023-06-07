@@ -18,7 +18,7 @@ const Classes = () => {
   }
   return (
     <div className="mb-3">
-      <h2 className="text-3xl text-center">Popular Classes</h2>
+      <h2 className="text-3xl text-center">All Classes</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
         {data?.map((item) => (
           <>
@@ -35,8 +35,8 @@ const Classes = () => {
                   <p>Total Enrolled: {item.enrolled}</p>
                   <p>Price: {item.price}</p>
                 </div>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
+                <div className="card-actions justify-center">
+                  <button className="btn btn-primary">Select Class</button>
                 </div>
               </div>
             </div>
