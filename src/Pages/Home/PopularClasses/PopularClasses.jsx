@@ -2,14 +2,21 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 
 const PopularClasses = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["popularClasses"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/popularclasses");
+      const res = await fetch("http://localhost:5000/popularClasses");
       return res.json();
     },
   });
   console.log(data);
+  if (isLoading) {
+    return (
+      <div className="flex justify-center">
+        <span className="loading loading-ball loading-lg"></span>
+      </div>
+    );
+  }
   return (
     <div className="mb-3">
       <h2 className="text-3xl text-center">Popular Classes</h2>
@@ -28,9 +35,6 @@ const PopularClasses = () => {
                 <div className="flex justify-evenly">
                   <p>Total Enrolled: {item.enrolled}</p>
                   <p>Price: {item.price}</p>
-                </div>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
                 </div>
               </div>
             </div>
