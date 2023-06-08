@@ -2,12 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import useStudent from "../../../hooks/useStudent";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-import useInstructor from "../../../hooks/UseInstructor";
 
 const Classes = () => {
   const { user } = useAuth();
-  const navigate = useNavigate();
 
   const { data, isLoading } = useQuery({
     queryKey: ["classes"],
@@ -46,25 +43,10 @@ const Classes = () => {
             });
           }
         });
-    } else {
-      Swal.fire({
-        title: "Please Login",
-        text: "You need to login to select class",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Login",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate("/login");
-        }
-      });
     }
   };
 
-  const [isAdmin] = useStudent();
-  const [isInstructor] = useInstructor();
+  const [isStudent] = useStudent();
 
   if (isLoading) {
     return (
@@ -103,9 +85,7 @@ const Classes = () => {
                     handleAddToDb(item);
                   }}
                   className="btn btn-primary"
-                  disabled={
-                    item.available_seats === 0 || isAdmin || isInstructor
-                  }
+                  disabled={item.available_seats === 0 || !isStudent}
                 >
                   Select Class
                 </button>
