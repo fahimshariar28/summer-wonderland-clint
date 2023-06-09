@@ -77,9 +77,9 @@ const CheckoutForm = ({ selectedClass, price }) => {
         email: user?.email,
         name: user?.displayName,
         date: new Date(),
-        selectedClassId: selectedClass.map((cls) => cls._id),
-        classId: selectedClass.map((cls) => cls.classId),
-        className: selectedClass.map((cls) => cls.className),
+        selectedClassId: selectedClass._id,
+        classId: selectedClass.classId,
+        className: selectedClass.className,
         status: "pending",
       };
       axiosSecure.post("/payment", payment).then((res) => {
