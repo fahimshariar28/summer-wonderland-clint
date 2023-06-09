@@ -53,9 +53,6 @@ const Login = () => {
     <div>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse justify-evenly">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-          </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
@@ -66,7 +63,7 @@ const Login = () => {
                   {...register("email", { required: true })}
                   type="email"
                   placeholder="Your email"
-                  className="input input-bordered"
+                  className="input input-bordered w-full"
                 />
               </div>
               <div className="form-control">
@@ -78,7 +75,7 @@ const Login = () => {
                     {...register("password", { required: true })}
                     type={showPassword ? "text" : "password"}
                     placeholder="********"
-                    className="input input-bordered"
+                    className="input input-bordered w-full"
                   />
                   <button
                     className="ms-2 text-2xl text-primary"
