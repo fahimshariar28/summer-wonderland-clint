@@ -62,7 +62,7 @@ const Classes = () => {
         {data?.map((item) => (
           <div
             key={item._id}
-            className={`card w-96  shadow-xl ${
+            className={`card  shadow-xl ${
               item.available_seats === 0 ? "bg-red-500" : "bg-base-100"
             }`}
           >
