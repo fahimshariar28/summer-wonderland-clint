@@ -1,9 +1,27 @@
 import { Link } from "react-router-dom";
 import useSelectedClass from "../../../../hooks/useSelectedClass";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const SelectedClass = () => {
-  const [selectedClass] = useSelectedClass();
+  const [selectedClass, refetch] = useSelectedClass();
+  const [axiosSecure] = useAxiosSecure();
   const total = selectedClass?.reduce((acc, item) => acc + item.classPrice, 0);
+
+  const handleDelete = (item) => {
+    axiosSecure.delete(`/deleteSelectedClass/${item._id}`).then((res) => {
+      if (res.data.deletedCount > 0) {
+        Swal.fire({
+          icon: "success",
+          title: "Deleted!",
+          text: "Your selected class has been deleted.",
+        });
+      }
+
+      refetch();
+    });
+  };
+
   return (
     <div>
       <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
@@ -22,6 +40,7 @@ const SelectedClass = () => {
               <th>Class Name</th>
               <th>Price</th>
               <th>Instructor</th>
+              <th>Pay</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -33,7 +52,15 @@ const SelectedClass = () => {
                 <td>{item.classPrice}</td>
                 <td>{item.instructor}</td>
                 <td>
-                  <button className="btn btn-sm btn-error">Delete</button>
+                  <button className="btn btn-sm btn-primary">Pay</button>
+                </td>
+                <td>
+                  <button
+                    onClick={() => handleDelete(item)}
+                    className="btn btn-sm btn-error"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
