@@ -10,6 +10,8 @@ import SelectedClass from "../Pages/Dashboard/StudentDashboard/SelectedClass/Sel
 import PrivateRoute from "./PrivateRoute";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import StudentRoute from "./StudentRoute";
+import AdminRoute from "./AdminRoute";
+import ManageUser from "../Pages/Dashboard/AdminDashboard/ManageUser";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "manageuser",
+        element: (
+          <AdminRoute>
+            <ManageUser />
+          </AdminRoute>
+        ),
+      },
       {
         path: "selectedClass",
         element: (

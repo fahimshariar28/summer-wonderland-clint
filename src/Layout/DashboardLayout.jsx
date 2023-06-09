@@ -26,7 +26,7 @@ const DashboardLayout = () => {
             {isAdmin && (
               <>
                 <li>
-                  <a>Sidebar Item 1</a>
+                  <NavLink to="/dashboard/manageuser">Manage User</NavLink>
                 </li>
                 <li>
                   <a>Sidebar Item 2</a>

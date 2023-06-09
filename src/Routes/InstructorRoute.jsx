@@ -2,7 +2,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import useInstructor from "../hooks/UseInstructor";
 import useAuth from "../hooks/useAuth";
 
-const InstructorRoute = (children) => {
+const InstructorRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const [isInstructor, isInstructorLoading] = useInstructor();
   const location = useLocation();
