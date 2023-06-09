@@ -8,6 +8,7 @@ import Register from "../Pages/Register/Register";
 import DashboardLayout from "../Layout/DashboardLayout";
 import SelectedClass from "../Pages/Dashboard/StudentDashboard/SelectedClass/SelectedClass";
 import PrivateRoute from "./PrivateRoute";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "selectedClass",
         element: <SelectedClass />,
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
     ],
   },
