@@ -52,7 +52,11 @@ const SelectedClass = () => {
                 <td>{item.classPrice}</td>
                 <td>{item.instructor}</td>
                 <td>
-                  <button className="btn btn-sm btn-primary">Pay</button>
+                  <Link to="/dashboard/payment">
+                    <button className="btn btn-sm btn-primary" disabled>
+                      Pay
+                    </button>
+                  </Link>
                 </td>
                 <td>
                   <button
