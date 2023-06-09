@@ -12,3 +12,10 @@
   text-decoration: none;
   font-size: 1.25rem;
 }
+
+.drawer-side a.active {
+  color: #570df8;
+}
+.drawer-side a {
+  background-color: transparent;
+}
