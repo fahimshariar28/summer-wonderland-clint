@@ -80,7 +80,8 @@ const CheckoutForm = ({ selectedClass, price }) => {
         selectedClassId: selectedClass._id,
         classId: selectedClass.classId,
         className: selectedClass.className,
-        status: "pending",
+        classPrice: selectedClass.classPrice,
+        status: "paid",
       };
       axiosSecure.post("/payment", payment).then((res) => {
         console.log(res.data);

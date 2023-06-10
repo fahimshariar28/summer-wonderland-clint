@@ -51,7 +51,9 @@ const DashboardLayout = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <a>Sidebar Item 2</a>
+                  <NavLink to="/dashboard/enrolledClasses">
+                    Enrolled Classes
+                  </NavLink>
                 </li>
               </>
             )}
