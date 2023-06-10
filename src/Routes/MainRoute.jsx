@@ -14,6 +14,9 @@ import AdminRoute from "./AdminRoute";
 import ManageUser from "../Pages/Dashboard/AdminDashboard/ManageUser";
 import EnrolledClasses from "../Pages/Dashboard/StudentDashboard/SelectedClass/EnrolledClasses";
 import PaymentHistory from "../Pages/Dashboard/StudentDashboard/SelectedClass/PaymentHistory";
+import InstructorRoute from "./InstructorRoute";
+import AddClass from "../Pages/Dashboard/InstructorDashboard.jsx/AddClass";
+import MyClasses from "../Pages/Dashboard/InstructorDashboard.jsx/MyClasses";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +59,22 @@ const router = createBrowserRouter([
           <AdminRoute>
             <ManageUser />
           </AdminRoute>
+        ),
+      },
+      {
+        path: "addclass",
+        element: (
+          <InstructorRoute>
+            <AddClass />
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "myclasses",
+        element: (
+          <InstructorRoute>
+            <MyClasses />
+          </InstructorRoute>
         ),
       },
       {

@@ -36,10 +36,10 @@ const DashboardLayout = () => {
             {isInstructor && (
               <>
                 <li>
-                  <a>Sidebar Item 1</a>
+                  <NavLink to="/dashboard/addclass">Add Class</NavLink>
                 </li>
                 <li>
-                  <a>Sidebar Item 2</a>
+                  <NavLink to="/dashboard/myclasses">My Classes</NavLink>
                 </li>
               </>
             )}
