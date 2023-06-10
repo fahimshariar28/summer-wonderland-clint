@@ -17,6 +17,7 @@ import PaymentHistory from "../Pages/Dashboard/StudentDashboard/SelectedClass/Pa
 import InstructorRoute from "./InstructorRoute";
 import AddClass from "../Pages/Dashboard/InstructorDashboard.jsx/AddClass";
 import MyClasses from "../Pages/Dashboard/InstructorDashboard.jsx/MyClasses";
+import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,14 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "manageclasses",
+        element: (
+          <AdminRoute>
+            <ManageClasses />
+          </AdminRoute>
+        ),
+      },
       {
         path: "manageuser",
         element: (
