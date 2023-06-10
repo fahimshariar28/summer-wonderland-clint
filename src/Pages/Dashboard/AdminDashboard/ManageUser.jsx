@@ -3,15 +3,16 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 
 const ManageUser = () => {
-  const { loading } = useAuth();
+  const { user, loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
 
   const { data } = useQuery({
     queryKey: ["users"],
-    enabled: !loading,
+    enabled:
+      !loading && !!user?.email && !!localStorage.getItem("access-token"),
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
-      return res.data.users;
+      return res.data;
     },
   });
   return (

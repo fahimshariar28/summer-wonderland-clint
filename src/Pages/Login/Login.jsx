@@ -16,6 +16,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
+    event.preventDefault();
     setShowPassword(!showPassword);
   };
 
@@ -63,7 +64,7 @@ const Login = () => {
                   {...register("email", { required: true })}
                   type="email"
                   placeholder="Your email"
-                  className="input input-bordered w-1/2"
+                  className="input input-bordered w-9/12"
                 />
               </div>
               <div className="form-control">
@@ -75,9 +76,10 @@ const Login = () => {
                     {...register("password", { required: true })}
                     type={showPassword ? "text" : "password"}
                     placeholder="********"
-                    className="input input-bordered w-1/2"
+                    className="input input-bordered w-9/12"
                   />
                   <button
+                    type="button"
                     className="ms-2 text-2xl text-primary"
                     onClick={togglePasswordVisibility}
                   >
@@ -98,7 +100,7 @@ const Login = () => {
                 <input
                   type="submit"
                   value="Login"
-                  className="btn btn-primary"
+                  className="btn btn-primary w-9/12"
                 />
               </div>
             </form>
