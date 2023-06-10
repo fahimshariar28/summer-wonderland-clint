@@ -35,13 +35,10 @@ const Login = () => {
       .then((result) => {
         console.log(result);
         Swal.fire({
-          title: "User Login Successful.",
-          showClass: {
-            popup: "animate__animated animate__fadeInDown",
-          },
-          hideClass: {
-            popup: "animate__animated animate__fadeOutUp",
-          },
+          icon: "success",
+          title: "Login successful",
+          showConfirmButton: false,
+          timer: 1500,
         });
         navigate(from, { replace: true });
       })

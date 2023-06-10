@@ -38,15 +38,12 @@ const Register = () => {
               .then((res) => res.json())
               .then((data) => {
                 console.log(data);
+                navigate("/");
                 Swal.fire({
                   icon: "success",
-                  title: "Registration Successful",
-                  text: "Please Login",
-                  confirmButtonText: "Ok",
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    navigate("/");
-                  }
+                  title: "Registration successful",
+                  showConfirmButton: false,
+                  timer: 1500,
                 });
               });
           });
