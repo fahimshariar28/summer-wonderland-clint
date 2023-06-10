@@ -63,7 +63,7 @@ const Login = () => {
                   {...register("email", { required: true })}
                   type="email"
                   placeholder="Your email"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-1/2"
                 />
               </div>
               <div className="form-control">
@@ -75,7 +75,7 @@ const Login = () => {
                     {...register("password", { required: true })}
                     type={showPassword ? "text" : "password"}
                     placeholder="********"
-                    className="input input-bordered w-full"
+                    className="input input-bordered w-1/2"
                   />
                   <button
                     className="ms-2 text-2xl text-primary"
@@ -95,7 +95,11 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <input
+                  type="submit"
+                  value="Login"
+                  className="btn btn-primary"
+                />
               </div>
             </form>
             <p className="p-5 text-center">
