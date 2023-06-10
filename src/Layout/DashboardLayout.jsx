@@ -55,6 +55,11 @@ const DashboardLayout = () => {
                     Enrolled Classes
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to="/dashboard/paymentHistory">
+                    Payment History
+                  </NavLink>
+                </li>
               </>
             )}
           </ul>
