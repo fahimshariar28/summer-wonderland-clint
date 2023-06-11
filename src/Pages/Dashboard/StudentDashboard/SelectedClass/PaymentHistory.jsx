@@ -2,6 +2,21 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+  const amOrPm = hours >= 12 ? "PM" : "AM";
+  hours %= 12;
+  hours = hours || 12;
+
+  const formattedDate = `${hours}.${minutes} ${amOrPm} ${date.getDate()}/${
+    date.getMonth() + 1
+  }/${date.getFullYear()}`;
+  return formattedDate;
+};
+
 const PaymentHistory = () => {
   const { user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
@@ -13,6 +28,7 @@ const PaymentHistory = () => {
       return res.data;
     },
   });
+
   if (loading) {
     return (
       <div className="flex justify-center items-center">
@@ -20,6 +36,7 @@ const PaymentHistory = () => {
       </div>
     );
   }
+
   return (
     <div>
       <h2 className="text-2xl uppercase">MY Payment History</h2>
@@ -40,7 +57,7 @@ const PaymentHistory = () => {
                 <td>{index + 1}</td>
                 <td>{item.className}</td>
                 <td>{item.classPrice}</td>
-                <td>{item.date}</td>
+                <td>{formatDate(item.date)}</td>
                 <td>{item.transactionId}</td>
               </tr>
             ))}
