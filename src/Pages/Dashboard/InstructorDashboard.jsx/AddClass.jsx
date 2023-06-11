@@ -2,10 +2,13 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddClass = () => {
   const { user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
+  const navigate = useNavigate();
+
   const {
     reset,
     register,
@@ -20,6 +23,7 @@ const AddClass = () => {
     console.log(data);
     axiosSecure.post("/addClass", data).then((response) => {
       console.log(response);
+      navigate("/dashboard/myclasses");
       Swal.fire({
         icon: "success",
         title: "Class added successfully",
