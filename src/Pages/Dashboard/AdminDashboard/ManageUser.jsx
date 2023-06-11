@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import SectionTitle from "../../Shared/SectionTitle";
 
 const ManageUser = () => {
   const { user, loading } = useAuth();
@@ -45,7 +46,7 @@ const ManageUser = () => {
 
   return (
     <div>
-      <h2 className="text-2xl uppercase my-3 text-center">Manage user</h2>
+      <SectionTitle title="Manage Users" />
       <table className="table w-full">
         <thead>
           <tr>

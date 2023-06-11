@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import SectionTitle from "../../../Shared/SectionTitle";
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -39,7 +40,7 @@ const PaymentHistory = () => {
 
   return (
     <div>
-      <h2 className="text-2xl uppercase">MY Payment History</h2>
+      <SectionTitle title="Payment History" />
       <div className="overflow-x-auto">
         <table className="table">
           <thead className="btn-primary text-white mt-8">

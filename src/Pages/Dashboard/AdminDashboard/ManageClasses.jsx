@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import SectionTitle from "../../Shared/SectionTitle";
 
 const ManageClasses = () => {
   const { user, loading } = useAuth();
@@ -62,7 +63,7 @@ const ManageClasses = () => {
 
   return (
     <div className="w-full">
-      <h2 className="text-2xl uppercase text-center">Manage Classes</h2>
+      <SectionTitle title="Manage Classes" />
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

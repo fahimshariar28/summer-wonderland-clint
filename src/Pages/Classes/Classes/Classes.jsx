@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useStudent from "../../../hooks/useStudent";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import SectionTitle from "../../Shared/SectionTitle";
 
 const Classes = () => {
   const { user } = useAuth();
@@ -57,7 +58,7 @@ const Classes = () => {
   }
   return (
     <div className="mb-3">
-      <h2 className="text-3xl text-center">All Classes</h2>
+      <SectionTitle title="All Classes" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
         {data?.map((item) => (
           <div

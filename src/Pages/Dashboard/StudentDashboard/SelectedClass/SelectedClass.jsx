@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useSelectedClass from "../../../../hooks/useSelectedClass";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import SectionTitle from "../../../Shared/SectionTitle";
 
 const SelectedClass = () => {
   const [selectedClass, refetch] = useSelectedClass();
@@ -24,6 +25,7 @@ const SelectedClass = () => {
 
   return (
     <div>
+      <SectionTitle title="Selected Class" />
       <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
         <h3 className="text-2xl">Total Items: {selectedClass?.length}</h3>
         <h3 className="text-2xl">Total Price: ${total}</h3>

@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import SectionTitle from "../../Shared/SectionTitle";
 
 const AddClass = () => {
   const { user } = useAuth();
@@ -36,7 +37,7 @@ const AddClass = () => {
 
   return (
     <div>
-      <h2 className="text-2xl uppercase text-center">Add New Class</h2>
+      <SectionTitle title="Add Class" />
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* register your input into the hook by invoking the "register" function */}
         <div className="flex flex-col md:flex-row">

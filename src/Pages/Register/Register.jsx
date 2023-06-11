@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import SectionTitle from "../Shared/SectionTitle";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useAuth();
@@ -57,6 +58,7 @@ const Register = () => {
   };
   return (
     <div className="w-3/5 mx-auto shadow-2xl bg-base-100">
+      <SectionTitle title="Register" />
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="form-control">
           <label className="label">

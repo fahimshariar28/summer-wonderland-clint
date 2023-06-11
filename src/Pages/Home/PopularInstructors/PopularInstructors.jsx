@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import SectionTitle from "../../Shared/SectionTitle";
 
 const PopularInstructors = () => {
   const { data, isLoading } = useQuery({
@@ -27,15 +28,7 @@ const PopularInstructors = () => {
 
   return (
     <div className="mb-3">
-      <motion.h2
-        className="text-3xl text-center"
-        ref={ref}
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-      >
-        Popular Instructors
-      </motion.h2>
+      <SectionTitle title="Popular Instructors" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
         {data?.map((item, index) => (
           <motion.div

@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import SectionTitle from "../../../Shared/SectionTitle";
 
 const EnrolledClasses = () => {
   const { user } = useAuth();
@@ -24,7 +25,7 @@ const EnrolledClasses = () => {
 
   return (
     <div>
-      <h2 className="text-2xl uppercase">MY Enrolled Classes</h2>
+      <SectionTitle title="My Enrolled Classes" />
       <div className="overflow-x-auto">
         <table className="table">
           <thead className="btn-primary text-white mt-8">

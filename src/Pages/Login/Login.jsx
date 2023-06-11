@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import SectionTitle from "../Shared/SectionTitle";
 
 const Login = () => {
   const { loginUser } = useAuth();
@@ -49,6 +50,7 @@ const Login = () => {
 
   return (
     <div>
+      <SectionTitle title="Login" />
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse justify-evenly">
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
