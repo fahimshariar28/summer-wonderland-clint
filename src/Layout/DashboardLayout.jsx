@@ -1,12 +1,20 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/UseInstructor";
 import useStudent from "../hooks/useStudent";
+import useAuth from "../hooks/useAuth";
 
 const DashboardLayout = () => {
+  const navigate = useNavigate();
+  const { logOut } = useAuth();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const [isStudent] = useStudent();
+
+  const handleLogout = () => {
+    logOut();
+    navigate("/");
+  };
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -26,22 +34,22 @@ const DashboardLayout = () => {
             {isAdmin && (
               <>
                 <li>
+                  <NavLink to="/dashboard/manageuser">Manage User</NavLink>
+                </li>
+                <li>
                   <NavLink to="/dashboard/manageclasses">
                     Manage Classes
                   </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard/manageuser">Manage User</NavLink>
                 </li>
               </>
             )}
             {isInstructor && (
               <>
                 <li>
-                  <NavLink to="/dashboard/addclass">Add Class</NavLink>
+                  <NavLink to="/dashboard/myclasses">My Classes</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/myclasses">My Classes</NavLink>
+                  <NavLink to="/dashboard/addclass">Add Class</NavLink>
                 </li>
               </>
             )}
@@ -64,6 +72,14 @@ const DashboardLayout = () => {
                 </li>
               </>
             )}
+            <li className="mt-auto">
+              <button
+                onClick={handleLogout}
+                className="btn btn-error hover:text-error btn-sm w-2/4"
+              >
+                Logout
+              </button>
+            </li>
           </ul>
         </div>
       </div>

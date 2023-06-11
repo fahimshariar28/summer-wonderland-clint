@@ -1,8 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/UseInstructor";
+import useStudent from "../../hooks/useStudent";
 
 const NavBar = () => {
   const { user, logOut } = useAuth();
+  const [isStudent] = useStudent();
+  const [isInstructor] = useInstructor();
+  const [isAdmin] = useAdmin();
 
   const handleLogout = () => {
     logOut();
@@ -73,6 +79,21 @@ const NavBar = () => {
       <div className="navbar-end">
         {user ? (
           <>
+            {isAdmin && (
+              <Link to="/dashboard/manageclasses" className="me-4 text-xl">
+                Dashboard
+              </Link>
+            )}
+            {isStudent && (
+              <Link to="/dashboard/selectedClass" className="me-4 text-xl">
+                Dashboard
+              </Link>
+            )}
+            {isInstructor && (
+              <Link to="/dashboard/addclass" className="me-4 text-xl">
+                Dashboard
+              </Link>
+            )}
             <div className="avatar">
               <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 <img src={user.photoURL} />
