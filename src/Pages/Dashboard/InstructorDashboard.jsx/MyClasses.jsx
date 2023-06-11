@@ -42,7 +42,7 @@ const MyClasses = () => {
           </thead>
           <tbody className="text-center">
             {classes?.map((classItem, index) => (
-              <tr key={classItem.id}>
+              <tr key={classItem._id}>
                 <td>{index + 1}</td>
                 <td>{classItem.name}</td>
                 <td>{classItem.price}</td>
