@@ -72,6 +72,16 @@ const DashboardLayout = () => {
                 </li>
               </>
             )}
+            <div className="divider"></div>
+            <li>
+              <NavLink to="/">Home</NavLink>{" "}
+            </li>
+            <li>
+              <NavLink to="/classes">Classes</NavLink>{" "}
+            </li>
+            <li>
+              <NavLink to="/instructors">Instructors</NavLink>{" "}
+            </li>
             <li className="mt-auto">
               <button
                 onClick={handleLogout}
