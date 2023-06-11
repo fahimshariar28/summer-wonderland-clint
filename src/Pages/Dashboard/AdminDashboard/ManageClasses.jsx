@@ -61,10 +61,10 @@ const ManageClasses = () => {
   }
 
   return (
-    <div className="w-11/12">
+    <div className="w-full">
       <h2 className="text-2xl uppercase text-center">Manage Classes</h2>
-      <div className="overflow-x-scroll">
-        <table className="table table-xs">
+      <div className="overflow-x-auto">
+        <table className="table">
           {/* head */}
           <thead>
             <tr>
