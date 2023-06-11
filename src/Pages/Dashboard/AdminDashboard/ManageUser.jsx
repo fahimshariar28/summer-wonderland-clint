@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import SectionTitle from "../../Shared/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const ManageUser = () => {
   const { user, loading } = useAuth();
@@ -46,6 +47,9 @@ const ManageUser = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Manage Users | Summer Wonderland</title>
+      </Helmet>
       <SectionTitle title="Manage Users" />
       <table className="table w-full">
         <thead>

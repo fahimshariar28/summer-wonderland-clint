@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../Shared/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const EnrolledClasses = () => {
   const { user } = useAuth();
@@ -25,6 +26,9 @@ const EnrolledClasses = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Enrolled Classes | Summer Wonderland</title>
+      </Helmet>
       <SectionTitle title="My Enrolled Classes" />
       <div className="overflow-x-auto">
         <table className="table">

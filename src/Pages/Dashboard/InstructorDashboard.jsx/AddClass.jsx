@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import SectionTitle from "../../Shared/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const AddClass = () => {
   const { user } = useAuth();
@@ -37,6 +38,9 @@ const AddClass = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Add Class | Summer Wonderland</title>
+      </Helmet>
       <SectionTitle title="Add Class" />
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* register your input into the hook by invoking the "register" function */}

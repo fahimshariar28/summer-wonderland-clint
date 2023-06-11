@@ -3,6 +3,7 @@ import useStudent from "../../../hooks/useStudent";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import SectionTitle from "../../Shared/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
   const { user } = useAuth();
@@ -58,6 +59,9 @@ const Classes = () => {
   }
   return (
     <div className="mb-3">
+      <Helmet>
+        <title>Classes | Summer Wonderland</title>
+      </Helmet>
       <SectionTitle title="All Classes" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
         {data?.map((item) => (

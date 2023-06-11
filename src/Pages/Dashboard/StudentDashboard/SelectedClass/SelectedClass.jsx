@@ -3,6 +3,7 @@ import useSelectedClass from "../../../../hooks/useSelectedClass";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import SectionTitle from "../../../Shared/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const SelectedClass = () => {
   const [selectedClass, refetch] = useSelectedClass();
@@ -25,6 +26,9 @@ const SelectedClass = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Selected Class | Summer Wonderland</title>
+      </Helmet>
       <SectionTitle title="Selected Class" />
       <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
         <h3 className="text-2xl">Total Items: {selectedClass?.length}</h3>

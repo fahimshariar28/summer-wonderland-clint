@@ -6,6 +6,7 @@ import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import SectionTitle from "../Shared/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { loginUser } = useAuth();
@@ -50,6 +51,9 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Login | Summer Wonderland</title>
+      </Helmet>
       <SectionTitle title="Login" />
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse justify-evenly">

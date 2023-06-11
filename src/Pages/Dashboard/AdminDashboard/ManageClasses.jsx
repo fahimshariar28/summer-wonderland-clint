@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import SectionTitle from "../../Shared/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const ManageClasses = () => {
   const { user, loading } = useAuth();
@@ -63,6 +64,9 @@ const ManageClasses = () => {
 
   return (
     <div className="w-full">
+      <Helmet>
+        <title>Manage Classes | Summer Wonderland</title>
+      </Helmet>
       <SectionTitle title="Manage Classes" />
       <div className="overflow-x-auto">
         <table className="table">

@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import SectionTitle from "../Shared/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useAuth();
@@ -58,6 +59,9 @@ const Register = () => {
   };
   return (
     <div className="w-3/5 mx-auto shadow-2xl bg-base-100">
+      <Helmet>
+        <title>Register | Summer Wonderland</title>
+      </Helmet>
       <SectionTitle title="Register" />
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="form-control">

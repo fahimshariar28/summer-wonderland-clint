@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../Shared/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -40,6 +41,9 @@ const PaymentHistory = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Payment History | Summer Wonderland</title>
+      </Helmet>
       <SectionTitle title="Payment History" />
       <div className="overflow-x-auto">
         <table className="table">
