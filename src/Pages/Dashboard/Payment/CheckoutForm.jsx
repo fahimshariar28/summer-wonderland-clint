@@ -1,5 +1,4 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import "./CheckoutForm.css";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
@@ -107,6 +106,7 @@ const CheckoutForm = ({ selectedClass, price }) => {
           options={{
             style: {
               base: {
+                maxWidth: "100%",
                 fontSize: "16px",
                 color: "#424770",
                 "::placeholder": {

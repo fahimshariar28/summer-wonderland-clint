@@ -67,7 +67,7 @@ const Login = () => {
                   {...register("email", { required: true })}
                   type="email"
                   placeholder="Your email"
-                  className="input input-bordered w-9/12"
+                  className="input input-bordered"
                 />
               </div>
               <div className="form-control">
@@ -79,7 +79,7 @@ const Login = () => {
                     {...register("password", { required: true })}
                     type={showPassword ? "text" : "password"}
                     placeholder="********"
-                    className="input input-bordered w-9/12"
+                    className="input input-bordered"
                   />
                   <button
                     type="button"

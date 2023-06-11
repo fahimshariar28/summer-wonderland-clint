@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/UseInstructor";
 import useStudent from "../../hooks/useStudent";
+import DarkMode from "./DarkMode";
 
 const NavBar = () => {
   const { user, logOut } = useAuth();
@@ -39,6 +40,9 @@ const NavBar = () => {
         >
           Instructors
         </NavLink>
+      </li>
+      <li className="text-xl">
+        <DarkMode />
       </li>
     </>
   );

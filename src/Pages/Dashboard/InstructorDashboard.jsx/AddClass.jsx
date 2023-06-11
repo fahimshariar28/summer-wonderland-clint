@@ -62,7 +62,7 @@ const AddClass = () => {
           <input
             required
             className="p-3 m-1 border-2 w-1/2"
-            placeholder="Toy Name"
+            placeholder="Class Name"
             {...register("name")}
           />
           <input
