@@ -80,7 +80,7 @@ const NavBar = () => {
         {user ? (
           <>
             {isAdmin && (
-              <Link to="/dashboard/manageclasses" className="me-4 text-xl">
+              <Link to="/dashboard/manageuser" className="me-4 text-xl">
                 Dashboard
               </Link>
             )}
@@ -90,7 +90,7 @@ const NavBar = () => {
               </Link>
             )}
             {isInstructor && (
-              <Link to="/dashboard/addclass" className="me-4 text-xl">
+              <Link to="/dashboard/myclasses" className="me-4 text-xl">
                 Dashboard
               </Link>
             )}
