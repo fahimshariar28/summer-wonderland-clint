@@ -18,8 +18,6 @@ const StudentRoute = ({ children }) => {
     return children;
   } else if (user && !isStudent) {
     return <Navigate to="/" state={{ from: location }} replace></Navigate>;
-  } else if (!user) {
-    return <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
 };
 
