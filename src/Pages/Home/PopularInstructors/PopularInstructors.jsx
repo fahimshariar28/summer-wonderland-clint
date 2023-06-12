@@ -8,7 +8,9 @@ const PopularInstructors = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["popularInstructors"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/popularInstructors");
+      const res = await fetch(
+        "https://summer-wonderland-server.vercel.app/popularInstructors"
+      );
       return res.json();
     },
   });
