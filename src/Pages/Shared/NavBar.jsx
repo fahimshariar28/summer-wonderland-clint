@@ -66,7 +66,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="navbar w-9/12 mx-auto mt-3">
+    <div className="navbar w-9/12 mx-auto mt-3 relative">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -87,7 +87,7 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50"
           >
             {headerOptions}
           </ul>
