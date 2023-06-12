@@ -77,7 +77,7 @@ const NavBar = () => {
           <img className="w-12 rounded-md" src="/logo.png" alt="" />
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex items-center">
         <ul className="menu menu-horizontal px-1">{headerOptions}</ul>
       </div>
       <div className="navbar-end">
@@ -89,9 +89,9 @@ const NavBar = () => {
               </Link>
             )}
             {isStudent && (
-              <Link to="/dashboard/selectedClass" className="me-4 text-xl">
+              <NavLink to="/dashboard/selectedClass" className="me-4 text-xl">
                 Dashboard
-              </Link>
+              </NavLink>
             )}
             {isInstructor && (
               <Link to="/dashboard/myclasses" className="me-4 text-xl">
