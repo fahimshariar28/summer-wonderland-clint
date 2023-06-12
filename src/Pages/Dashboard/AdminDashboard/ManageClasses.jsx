@@ -23,35 +23,71 @@ const ManageClasses = () => {
   console.log(classes);
 
   const handleApprove = async (id) => {
-    try {
-      const res = await axiosSecure.put(`/approveClass/${id}`);
-      console.log(res.data);
-      Swal.fire({
-        icon: "success",
-        title: "Class Approved",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      refetch();
-    } catch (error) {
-      console.log(error);
-    }
+    Swal.fire({
+      title: "Send Feedback",
+      icon: "info",
+      html: '<input type="text" id="feedbackInput" placeholder="Enter your feedback" class="input w-full max-w-xs border-primary">',
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: "Send",
+      cancelButtonText: "Cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const feedback = document.getElementById("feedbackInput").value;
+
+        axiosSecure
+          .put(`/approveClass/${id}`, { feedback })
+          .then((res) => {
+            if (res.data.modifiedCount > 0) {
+              Swal.fire({
+                icon: "success",
+                title: "Class Approved Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              refetch();
+            }
+          })
+          .catch((error) => {
+            console.error("Error sending feedback:", error);
+          });
+      }
+    });
   };
 
   const handleReject = async (id) => {
-    try {
-      const res = await axiosSecure.put(`/rejectClass/${id}`);
-      console.log(res.data);
-      Swal.fire({
-        icon: "success",
-        title: "Class Rejected",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      refetch();
-    } catch (error) {
-      console.log(error);
-    }
+    Swal.fire({
+      title: "Send Feedback",
+      icon: "info",
+      html: '<input type="text" id="feedbackInput" placeholder="Enter your feedback" class="input w-full max-w-xs border-error">',
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: "Send",
+      cancelButtonText: "Cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const feedback = document.getElementById("feedbackInput").value;
+
+        axiosSecure
+          .put(`/rejectClass/${id}`, { feedback })
+          .then((res) => {
+            if (res.data.modifiedCount > 0) {
+              Swal.fire({
+                icon: "success",
+                title: "Class Rejected Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              refetch();
+            }
+          })
+          .catch((error) => {
+            console.error("Error sending feedback:", error);
+          });
+      }
+    });
   };
 
   if (isLoading || loading) {
