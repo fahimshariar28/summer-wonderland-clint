@@ -41,6 +41,25 @@ const NavBar = () => {
           Instructors
         </NavLink>
       </li>
+      {user && (
+        <li className="text-xl">
+          {isAdmin && (
+            <NavLink to="/dashboard/manageuser" className="link">
+              Dashboard
+            </NavLink>
+          )}
+          {isStudent && (
+            <NavLink to="/dashboard/selectedClass" className="link">
+              Dashboard
+            </NavLink>
+          )}
+          {isInstructor && (
+            <NavLink to="/dashboard/myclasses" className="link">
+              Dashboard
+            </NavLink>
+          )}
+        </li>
+      )}
       <li className="text-xl">
         <DarkMode />
       </li>
@@ -83,21 +102,6 @@ const NavBar = () => {
       <div className="navbar-end">
         {user ? (
           <>
-            {isAdmin && (
-              <Link to="/dashboard/manageuser" className="me-4 text-xl">
-                Dashboard
-              </Link>
-            )}
-            {isStudent && (
-              <NavLink to="/dashboard/selectedClass" className="me-4 text-xl">
-                Dashboard
-              </NavLink>
-            )}
-            {isInstructor && (
-              <Link to="/dashboard/myclasses" className="me-4 text-xl">
-                Dashboard
-              </Link>
-            )}
             <div className="avatar">
               <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 <img src={user.photoURL} />
