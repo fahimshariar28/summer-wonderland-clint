@@ -18,11 +18,13 @@ import InstructorRoute from "./InstructorRoute";
 import AddClass from "../Pages/Dashboard/InstructorDashboard.jsx/AddClass";
 import MyClasses from "../Pages/Dashboard/InstructorDashboard.jsx/MyClasses";
 import ManageClasses from "../Pages/Dashboard/AdminDashboard/ManageClasses";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
