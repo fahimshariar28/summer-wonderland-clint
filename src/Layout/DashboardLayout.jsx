@@ -19,16 +19,24 @@ const DashboardLayout = () => {
     <div>
       <div className="drawer lg:drawer-open overflow-x-auto">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content flex flex-col-reverse items-start justify-start">
           <Outlet />
           <label
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
           >
-            Open drawer
+            <svg
+              className="swap-off fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 512 512"
+            >
+              <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
+            </svg>
           </label>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side sticky top-0 left-0">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {isAdmin && (
